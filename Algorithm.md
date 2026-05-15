@@ -1,0 +1,36 @@
+# Algorithm - TCP
+## Client
+1. Create a socket
+2. Connect the socket to the server
+3. Read the string to be reversed from the standard input and send it to the server
+	Read the matrices from the standard input and send it to the server using the socket
+4. Read the reversed string from the socket and display it on the standard output
+	Read the product matrix from the socket and display it on the standard output
+5. Close the socket
+## Server
+1. Create a listening socket
+2. bind IP address and port number to the socket
+3. listen for incoming requests on the listening socket
+4. accept the incoming request
+5. connection socket is created when accepting returns
+6. Read the string using the connection socket from the client
+7. Reverse the string
+8. Send the string to the client using the connection socket
+9. close the connection socket
+10. close the listening socket
+
+# Algorithm- UDP
+
+## Client
+1. Create a socket
+2. Read the matrices from the standard input and send it to the server using the socket
+3. Read the product matrix from the socket and display it on the standard output
+4. Close the socket
+
+## Server
+1. Create a socket
+2. bind IP address and port number to the socket
+3. Read the matrices socket from the client using the socket
+4. Find the product of matrices
+5. Send the product matrix to the client using socket
+6. close the socket
