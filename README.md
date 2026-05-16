@@ -331,3 +331,164 @@ A **Subnet** (subnetwork) is a distinct, logical subdivision of a larger network
 
 ### Q77: What is a Service Access Point (SAP)?
 A **SAP** is a conceptual interface boundary point where an upper layer of the network protocol stack requests and accesses the communication services provided by the layer immediately below it.
+
+
+
+# Practice
+
+1. What are functions of different layers?
+2. Differentiate between TCP/IP Layers and OSI Layers
+3. Differentiate between TCP and UDP.
+4. Differentiate between Connectionless and connection oriented connection.
+5. What is meant by subnet?
+6. What is meant by Gateway?
+7. What is an IP address?
+8. What is MAC address?
+9. Define Raw Socket
+10. What is a fork command?
+11. Why IP address is required when we have MAC address?
+12. What is meant by port?
+13. What are ephemerical port number and well known port numbers?
+14. What is a socket?
+15. What are the parameters of socket()?
+16. Describe bind(), listen(), accept(),connect(), send() and recv().
+17. What are system calls? Mention few of them.
+18. What is IPC? Name three techniques.
+19. What type of protocol is BGP?
+20. What type of protocol is OSPF?
+21. Difference between ARP and RARP.
+22. What is Distance Vector Routing
+23. What is flooding.
+24. What is three way handshake.
+25. Disadvantages of Stop and wait protocol.
+26. Differentiate bridges from switches.
+27. What is a Router.
+28. What is routing.
+29. What is the role of DNS.
+30. What type of transport protocol is used for DNS.
+
+# Answers
+
+## 1. What are functions of different layers?
+
+The OSI model divides network communication into 7 distinct layers, each handling a specific part of the process:
+
+*   **7. Application Layer:** Provides the interface between the user applications and the network. It handles protocols like HTTP, FTP, and SMTP.
+*   **6. Presentation Layer:** Formats, encrypts, and compresses data to ensure that the receiving application can understand it.
+*   **5. Session Layer:** Establishes, manages, and terminates communication sessions between applications.
+*   **4. Transport Layer:** Ensures reliable host-to-host data transfer, flow control, and error correction (e.g., TCP, UDP).
+*   **3. Network Layer:** Handles routing of data packets across different networks and determines the best physical path (e.g., IP).
+*   **2. Data Link Layer:** Manages node-to-node data transfer on the same local network, handles physical addressing (MAC), and frames data.
+*   **1. Physical Layer:** Transmits raw unstructured bit streams over a physical medium (cables, radio waves, electrical signals).
+
+---
+
+## 2. Differentiate between TCP/IP Layers and OSI Layers
+
+The OSI model is a theoretical, conceptual framework with 7 layers, whereas the TCP/IP model is a practical, implementation framework with 4 layers.
+
+| Feature | OSI Model | TCP/IP Model |
+| :--- | :--- | :--- |
+| **Total Layers** | 7 Layers | 4 Layers |
+| **Development** | Developed by ISO as a theoretical standard. | Developed by ARPANET/DoD as a practical standard. |
+| **Upper Layers** | Application, Presentation, and Session layers are separate. | Merged into a single **Application Layer**. |
+| **Lower Layers** | Data Link and Physical layers are separate. | Merged into a single **Network Access / Network Interface Layer**. |
+| **Usage** | Used as a reference model for education. | The actual operational standard for the Internet. |
+
+
+
+---
+
+## 3. Differentiate between TCP and UDP
+
+| Feature | TCP (Transmission Control Protocol) | UDP (User Datagram Protocol) |
+| :--- | :--- | :--- |
+| **Connection Type** | Connection-oriented (requires setup). | Connectionless (sends without setup). |
+| **Reliability** | Highly reliable; guarantees data delivery. | Unreliable; best-effort delivery, can lose packets. |
+| **Speed** | Slower due to overhead, handshakes, and error checking. | Much faster with minimal overhead. |
+| **Data Flow** | Byte stream; tracks packet ordering. | Datagrams; packets may arrive out of order. |
+| **Common Uses** | Web browsing (HTTP), Email (SMTP), File Transfer (FTP). | Video streaming, Gaming, DNS, VoIP. |
+
+---
+
+## 4. Differentiate between Connectionless and Connection-Oriented Connection
+
+*   **Connection-Oriented:** A dedicated logical connection is established between sender and receiver before any data is transferred (e.g., placing a phone call). It ensures ordered, reliable delivery with acknowledgement features. **Example:** TCP.
+*   **Connectionless:** Data is divided into independent packets and sent immediately without verifying if the receiver is ready or active (e.g., sending a postal letter). Packets can take different paths and arrive out of order. **Example:** UDP.
+
+---
+
+## 5. What is meant by subnet?
+
+A **subnet** (sub-network) is a logical, isolated subdivision of an IP network. Dividing a large network into smaller subnets improves performance, enhances security, and simplifies management by localizing broadcast traffic. A **subnet mask** is used to distinguish the network portion of an IP address from the host portion.
+
+---
+
+## 6. What is meant by Gateway?
+
+A **gateway** is a network node that connects two networks operating on different protocols or architectures. It acts as an "entry and exit point" for a network. Whenever a device wants to communicate outside its local subnet, it forwards the packets to the default gateway (usually a router), which translates and routes the data to the destination network.
+
+---
+
+## 7. What is an IP address?
+
+An **IP (Internet Protocol) Address** is a unique logical identifier assigned to every device connected to a network. It operates at the Network Layer (Layer 3) and allows devices to find and communicate with each other across different networks.
+*   **IPv4:** 32-bit address represented in decimal format (e.g., `192.168.1.1`).
+*   **IPv6:** 128-bit address represented in hexadecimal format (e.g., `2001:0db8:85a3:0000:0000:8a2e:0370:7334`).
+
+---
+
+## 8. What is MAC address?
+
+A **MAC (Media Access Control) Address** is a unique, physical hardware address embedded into a network interface card (NIC) by the manufacturer. It operates at the Data Link Layer (Layer 2) and is 48 bits (6 bytes) long, typically written in hexadecimal format (e.g., `00:1A:2B:3C:4D:5E`). It uniquely identifies a device within a local network segment.
+
+---
+
+## 9. Define Raw Socket
+
+A **Raw Socket** is a type of internet socket that allows direct access to lower-level transport and network protocols without the automatic formatting provided by standard libraries. With a raw socket, the application can bypass standard TCP/UDP processing and construct its own custom IP headers or transport payloads, which is highly useful for security testing, sniffing, or developing new protocols.
+
+---
+
+## 10. What is a fork command?
+
+In operating systems (like Unix/Linux), `fork()` is a system call used by a parent process to create an exact duplicate of itself, known as the **child process**. Both processes continue execution from the instruction immediately following the `fork()` call.
+*   The parent process receives the Process ID (PID) of the child as the return value.
+*   The child process receives a return value of `0`.
+
+---
+
+## 11. Why is an IP address required when we have a MAC address?
+
+*   **MAC addresses** are physical and flat. They don't contain structural information about where a device is located globally. Relying solely on MAC addresses would require global network switches to store billions of table entries, creating a scaling bottleneck.
+*   **IP addresses** are logical and hierarchical. They are structured into network and host portions, similar to a mailing address containing a ZIP code and a house number. This allows routers to forward data packets across global networks based on broad network prefixes, without needing to know the exact physical location of the destination device until it reaches its local network.
+
+---
+
+## 12. What is meant by port?
+
+A **port** is a 16-bit logical identifier used by transport layer protocols (TCP/UDP) to direct network traffic to a specific application or service on a device. While an IP address gets data to the correct computer, the port number ensures the data reaches the correct software program (e.g., web browser, mail client) running on that computer. Port numbers range from `0` to `65535`.
+
+---
+
+## 13. What are ephemeral port numbers and well-known port numbers?
+
+*   **Well-Known Ports (0 – 1023):** Reserved for standard, system-level services and protocols. Examples: Port 80 (HTTP), Port 443 (HTTPS), Port 22 (SSH).
+*   **Ephemeral Ports (49152 – 65535):** Dynamic, temporary ports allocated automatically by the client operating system when an application initiates a network connection. They are discarded once the connection closes. *(Note: Some OS ranges like Linux use 32768–60999, but the official IANA dynamic range starts at 49152).*
+
+---
+
+## 14. What is a socket?
+
+A **socket** is an internal endpoint created by the operating system to facilitate bi-directional communication between two applications across a network. It acts as an interface between application code and the network protocol stack. A network socket is uniquely defined by a binding pair:
+
+$$\text{Socket} = (\text{IP Address} : \text{Port Number})$$
+
+---
+
+## 15. What are the parameters of socket()?
+
+The standard `socket()` system call takes three arguments:
+
+```c
+int socket(int domain, int type, int protocol);
