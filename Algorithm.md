@@ -34,3 +34,35 @@
 4. Find the product of matrices
 5. Send the product matrix to the client using socket
 6. close the socket
+
+
+# Algorithm - Leaky Bucket
+
+1. Input the bucket size, outgoing rate, and no of inputs
+2. While n is not equal to 0,
+3. Input the incoming packet size
+4. Print the incoming packet size
+5. If the incoming packet size is less than or equal to the bucket size - store,
+6. Add the incoming packet size to the store
+7. Print the bucket buffer size and the store
+8. Subtract the outgoing rate from the store
+9. If the store is less than 0,
+10. Set the store to 0
+11. Print the after outgoing packets left out of the bucket buffer size and the store
+12. Subtract 1 from n
+13. End while
+14. End program
+
+
+# Algorithm - STOP AND WAIT
+
+1. Start the program
+2. import all the necessary libraries
+3. Create 2 Application client and server
+4. Connect both Application using socket
+5. Sender frame is sent to the receiver and displayed by the receiver
+6. Receiver sends the acknowledgement to the sender if the frame is received else negative acknowledgement is sent
+7. Sender waits for the acknowledgement from the receiver
+8. If the acknowledgement is received then the sender sends the next frame
+9. If the negative acknowledgement is received then the sender sends the same frame again
+10. End program
