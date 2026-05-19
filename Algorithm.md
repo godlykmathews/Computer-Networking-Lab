@@ -64,6 +64,7 @@ N': a subset of nodes. v is in N'
 if the least cost path from the source to v is definitely known
 
 Initialization :
+```
 N' = {u}
 
 for all nodes v
@@ -80,7 +81,7 @@ do {
     D(v) = min{D(v) , D(w) + c(w,v)}
 } while ( N'!= N)
 
-
+```
 
 
 # Algorithm - STOP AND WAIT
