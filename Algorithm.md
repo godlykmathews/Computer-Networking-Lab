@@ -20,7 +20,7 @@
 9. close the connection socket
 10. close the listening socket
 
-# TCP Multi User Chat
+# Algorithm - TCP Multi User Chat
 
 ## SERVER
 
