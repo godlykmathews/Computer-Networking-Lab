@@ -69,33 +69,20 @@
 
 
 # Link-State Routing Algorithm:
-(It is the Dijkstra algorithm. This algorithm finds the shortest (least cost paths) from the source u to
-every other node in the network.
-D(v): cost of the least cost path from the source node to the destination node v as of this iteration of the
-algorithm
-p(v): previous node of v along the current least cost path from the source to v
-N': a subset of nodes. v is in N'
-if the least cost path from the source to v is definitely known
 
-Initialization :
-```
-N' = {u}
 
-for all nodes v
-    if v is a neighbor of u
-        then D(v) = c(u,v)
-    else
-        D(v) = ∞
-do {
-    find w, not in N'
-    such that D(w) is a minimum
-    add w to N'
-    update D(v) for each neighbor v of w and not in N'.
+This program implements Dijkstra's algorithm to find the shortest paths from a source node to all other nodes in a weighted graph. It generates routing tables for each node, showing the cost to reach each destination node and the next hop. The program reads the number of nodes in the graph, the cost matrix representing the edges between nodes, and the source node from the user. It then applies Dijkstra's algorithm to find the shortest paths and generates routing tables for each node.
 
-    D(v) = min{D(v) , D(w) + c(w,v)}
-} while ( N'!= N)
+## Algorithm
+1. Initialize distance array `dist`, visited array `visited`, and last array `last`.
+2. Initialize `dist[src]` to 0 and all other elements of `dist` to a large value (infinity).
+3. Iterate `n - 1` times:
+   a. Find the vertex `u` with the minimum distance value among the vertices not yet visited.
+   b. Mark `u` as visited.
+   c. Update the distance values of the vertices adjacent to `u`.
+   d. Update the last array to store the next hop for each destination.
+4. Generate routing tables for each node, showing the destination, cost, and next hop.
 
-```
 
 
 # Algorithm- UDP
