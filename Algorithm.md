@@ -20,34 +20,21 @@
 9. close the connection socket
 10. close the listening socket
 
-# Algorithm - TCP Multi User Chat
+# Algorithm- UDP
 
-## SERVER
+## Client
+1. Create a socket
+2. Read the matrices from the standard input and send it to the server using the socket
+3. Read the product matrix from the socket and display it on the standard output
+4. Close the socket
 
-1. Create a TCP socket.
-2. Clear memory space for socket address.
-3. Set up socket address structure with server details.
-4. Bind socket to server address.
-5. Start listening for incoming connections.
-6. Accept client connections.
-7. Convert client's network address to a readable format.
-8. Spawn a child process to handle client while the parent process stops listening.
-9. Receive data from client.
-10. Send received data back to client.
-11. Print client's IP address.
-12. Close the socket.
-
-## CLIENT
-
-1. Create a TCP socket.
-2. Clear memory space for socket address.
-3. Set up socket address structure with server details.
-4. Connect to server.
-5. Continuously read input from user.
-6. Send user input to server.
-7. Receive response from server.
-8. Print server's response.
-9. Repeat steps 5-8 as needed.
+## Server
+1. Create a socket
+2. bind IP address and port number to the socket
+3. Read the matrices socket from the client using the socket
+4. Find the product of matrices
+5. Send the product matrix to the client using socket
+6. close the socket
 
 
 # Algorithm - Leaky Bucket
@@ -85,23 +72,6 @@ This program implements Dijkstra's algorithm to find the shortest paths from a s
 
 
 
-# Algorithm- UDP
-
-## Client
-1. Create a socket
-2. Read the matrices from the standard input and send it to the server using the socket
-3. Read the product matrix from the socket and display it on the standard output
-4. Close the socket
-
-## Server
-1. Create a socket
-2. bind IP address and port number to the socket
-3. Read the matrices socket from the client using the socket
-4. Find the product of matrices
-5. Send the product matrix to the client using socket
-6. close the socket
-
-
 # Algorithm - STOP AND WAIT
 
 1. Start the program
@@ -114,3 +84,33 @@ This program implements Dijkstra's algorithm to find the shortest paths from a s
 8. If the acknowledgement is received then the sender sends the next frame
 9. If the negative acknowledgement is received then the sender sends the same frame again
 10. End program
+
+
+# Algorithm - TCP Multi User Chat
+
+## SERVER
+
+1. Create a TCP socket.
+2. Clear memory space for socket address.
+3. Set up socket address structure with server details.
+4. Bind socket to server address.
+5. Start listening for incoming connections.
+6. Accept client connections.
+7. Convert client's network address to a readable format.
+8. Spawn a child process to handle client while the parent process stops listening.
+9. Receive data from client.
+10. Send received data back to client.
+11. Print client's IP address.
+12. Close the socket.
+
+## CLIENT
+
+1. Create a TCP socket.
+2. Clear memory space for socket address.
+3. Set up socket address structure with server details.
+4. Connect to server.
+5. Continuously read input from user.
+6. Send user input to server.
+7. Receive response from server.
+8. Print server's response.
+9. Repeat steps 5-8 as needed.
